@@ -12,23 +12,21 @@ export default function Searchbar({ onSearch }) {
 
   const handleSubmit = event => {
     event.preventDefault();
-    const clearSearchRequest = () => setSearchRequest('');
     if (searchRequest.trim() === '') {
       return toast.warning('Search field is empty!');
     }
     onSearch(searchRequest);
-    clearSearchRequest();
   };
 
     return (
-      <header className={s.Searchbar}>
-        <form className={s.SearchForm} onSubmit={handleSubmit}>
-          <button type="submit" className={s.SearchForm_button}>
-            <span className={s.SearchForm_button_label}>Search</span>
+      <header className={s.searchbar}>
+        <form className={s.searchForm} onSubmit={handleSubmit}>
+          <button type="submit" className={s.searchForm_button}>
+            <span className={s.searchForm_button_label}>Search</span>
           </button>
 
           <input
-            className={s.SearchForm_input}
+            className={s.searchForm_input}
             type="text"
             name="searchRequest"
             value={searchRequest}

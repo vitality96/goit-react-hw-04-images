@@ -2,8 +2,7 @@ import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import s from './Modal.module.css';
 
-export default function Modal({lgImage, tags, closeModal }) {
-
+export default function Modal({ lgImage, tags, closeModal }) {
   useEffect(() => {
     const handleKeyDown = event => {
       if (event.code === 'Escape') {
@@ -17,20 +16,19 @@ export default function Modal({lgImage, tags, closeModal }) {
     };
   }, [closeModal]);
 
-
   const handleBackdropClick = event => {
     if (event.currentTarget === event.target) {
       closeModal();
     }
   };
 
-    return (
-      <div className={s.overlay} onClick={handleBackdropClick}>
-        <div className={s.modal}>
-          <img src={lgImage} alt={tags} />
-        </div>
+  return (
+    <div className={s.overlay} onClick={handleBackdropClick}>
+      <div className={s.modal}>
+        <img src={lgImage} alt={tags} />
       </div>
-    );
+    </div>
+  );
 };
 
 
